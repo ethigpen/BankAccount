@@ -1,0 +1,54 @@
+package com.thigpen.bankAccount;
+
+public class BankAccount {
+//	member variables
+	private double checkingBalance;
+	private double savingsBalance;
+	private static int numOfAccts = 0;
+	private static int totalMoneyAcc = 0;
+	
+//	constructor
+	public BankAccount() {
+	this.checkingBalance =0;
+	this.savingsBalance = 0;
+	numOfAccts++;
+	}
+	
+//	methods
+	
+//	get
+	public double getCheckingBal() {
+		return checkingBalance;
+	}
+	
+	public double getSavingsBal() {
+		return savingsBalance;
+	}
+	
+//	deposit
+	public void deposit(int amtDeposit, String acct ) {
+		if(acct == "checking") {
+			this.checkingBalance += amtDeposit;
+			totalMoneyAcc += amtDeposit;
+		}else if (acct == "savings") {
+			this.savingsBalance += amtDeposit;
+			totalMoneyAcc += amtDeposit;
+		}else {
+			System.out.println("Please specify where to deposit your money ie checking or savings");
+		}
+	}
+	
+//	withdraw
+	public void withdraw(int amtWithdraw, String acct ) {
+		if(acct == "checking" && this.checkingBalance !=0) {
+			this.checkingBalance -= amtWithdraw;
+			totalMoneyAcc -= amtWithdraw;
+		}else if (acct == "savings") {
+			this.savingsBalance -= amtWithdraw;
+			totalMoneyAcc -= amtWithdraw;
+		}else {
+			System.out.println("Cannot complete transcation insufficent funds");
+		}
+	}
+
+}

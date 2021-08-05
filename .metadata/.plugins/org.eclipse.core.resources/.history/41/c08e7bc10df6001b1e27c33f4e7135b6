@@ -1,0 +1,39 @@
+package com.thigpen.bankAccount;
+
+public class BankAccount {
+//	member variables
+	private double checkingBalance;
+	private double savingsBalance;
+	private static int numOfAccts;
+	private static int totalMoneyAcc;
+	
+//	constructor
+	public BankAccount() {
+	this.checkingBalance =0;
+	this.savingsBalance = 0;
+	numOfAccts++;
+	}
+	
+//	methods
+	
+//	get
+	public double getCheckingBal() {
+		return checkingBalance;
+	}
+	
+	public double getSavingsBal() {
+		return savingsBalance;
+	}
+	
+//	set
+	public void depositChecking(int amt) {
+		this.checkingBalance += amt;
+		totalMoneyAcc += amt;
+	}
+	
+	public void depositSavings(int amt) {
+		this.savingsBalance += amt;
+		totalMoneyAcc += amt;
+	}
+
+}
